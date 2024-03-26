@@ -10,7 +10,10 @@ public class KucnaHemija extends Artikal {
 		return rokTrajanja;
 	}
 
-	public void setRokTrajanja(Date rokTrajanja) {
+	public void setRokTrajanja(Date rokTrajanja) throws Exception {
+		if (rokTrajanja.before(new Date())) {
+			throw new Exception("Unijeti rok trajanja ne moze da bude datum u proslosti!");
+		}
 		this.rokTrajanja = rokTrajanja;
 	}
 
@@ -38,7 +41,5 @@ public class KucnaHemija extends Artikal {
 		KucnaHemija other = (KucnaHemija) obj;
 		return Objects.equals(rokTrajanja, other.rokTrajanja);
 	}
-	
-	
 
 }

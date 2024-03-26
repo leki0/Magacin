@@ -13,7 +13,10 @@ public abstract class Artikal {
 		return naziv;
 	}
 
-	public void setNaziv(String naziv) {
+	public void setNaziv(String naziv) throws Exception {
+		if (naziv == null || naziv.equals("")) {
+			throw new Exception("Ne mozete da unesete naziv koji je null ili prazan string!");
+		}
 		this.naziv = naziv;
 	}
 
@@ -21,7 +24,10 @@ public abstract class Artikal {
 		return sifra;
 	}
 
-	public void setSifra(long sifra) {
+	public void setSifra(long sifra) throws Exception {
+		if (sifra < 0) {
+			throw new Exception("Ne mozete da unesete sifru koja je negativan cio broj!");
+		}
 		this.sifra = sifra;
 	}
 
@@ -29,7 +35,10 @@ public abstract class Artikal {
 		return opis;
 	}
 
-	public void setOpis(String opis) {
+	public void setOpis(String opis) throws Exception {
+		if (opis == null || opis.equals("")) {
+			throw new Exception("Ne mozete da unesete opis koji je null ili prazan string!");
+		}
 		this.opis = opis;
 	}
 
@@ -37,7 +46,10 @@ public abstract class Artikal {
 		return kolicina;
 	}
 
-	public void setKolicina(int kolicina) {
+	public void setKolicina(int kolicina) throws Exception {
+		if (kolicina < 0) {
+			throw new Exception("Unijeta kolicina ne smije da bude negativan cio broj!");
+		}
 		this.kolicina = kolicina;
 	}
 
@@ -63,7 +75,5 @@ public abstract class Artikal {
 		return kolicina == other.kolicina && Objects.equals(naziv, other.naziv) && Objects.equals(opis, other.opis)
 				&& sifra == other.sifra;
 	}
-	
-	
 
 }
