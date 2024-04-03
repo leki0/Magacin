@@ -1,13 +1,17 @@
 package magacin;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import magacin.interfejs.MagacinInterfejs;
 
 public class Magacin implements MagacinInterfejs {
 
+	List<Artikal> artikli = new ArrayList<>();
+
 	@Override
 	public void dodajArtikal(Artikal a, int kolicina) {
-		// TODO Auto-generated method stub
-
+		artikli.add(a);
 	}
 
 	@Override
