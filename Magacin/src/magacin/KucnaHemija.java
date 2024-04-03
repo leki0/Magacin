@@ -12,6 +12,9 @@ public class KucnaHemija extends Artikal {
 	}
 
 	public void setRokTrajanja(Date rokTrajanja) {
+		if (rokTrajanja.before(new Date())) {
+			throw new IllegalArgumentException("Datum mora biti u buducnosti");
+		}
 		this.rokTrajanja = rokTrajanja;
 	}
 
@@ -39,7 +42,5 @@ public class KucnaHemija extends Artikal {
 	public String toString() {
 		return "KucnaHemija [rokTrajanja=" + rokTrajanja + "]";
 	}
-	
-	
 
 }

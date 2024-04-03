@@ -14,6 +14,12 @@ public abstract class Artikal {
 	}
 
 	public void setNaziv(String naziv) {
+		if (naziv == null) {
+			throw new NullPointerException("Naziv ne smije da bude null");
+		}
+		if (naziv.equals("")) {
+			throw new IllegalArgumentException("Naziv ne smije da bude prazan string");
+		}
 		this.naziv = naziv;
 	}
 
@@ -22,6 +28,9 @@ public abstract class Artikal {
 	}
 
 	public void setSifra(int sifra) {
+		if (sifra < 0) {
+			throw new IllegalArgumentException("Sifra ne moze da bude negativan broj");
+		}
 		this.sifra = sifra;
 	}
 
@@ -30,6 +39,9 @@ public abstract class Artikal {
 	}
 
 	public void setKolicina(int kolicina) {
+		if (kolicina < 0) {
+			throw new IllegalArgumentException("Kolicina ne moze da bude negativan broj");
+		}
 		this.kolicina = kolicina;
 	}
 
@@ -38,6 +50,13 @@ public abstract class Artikal {
 	}
 
 	public void setOpis(String opis) {
+
+		if (opis == null) {
+			throw new NullPointerException("Opis ne smije da bude null");
+		}
+		if (opis.equals("")) {
+			throw new IllegalArgumentException("Opis ne smije da bude prazan string");
+		}
 		this.opis = opis;
 	}
 
@@ -63,7 +82,5 @@ public abstract class Artikal {
 	public String toString() {
 		return "Artikal [naziv=" + naziv + ", sifra=" + sifra + ", kolicina=" + kolicina + ", opis=" + opis + "]";
 	}
-	
-	
 
 }
